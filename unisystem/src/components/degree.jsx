@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-function Degree(deg){
+function Degree({deg}){
     const [cohorts, setCohorts] = useState(null)
     useEffect(()=> {
-        fetch("http://127.0.0.1:8000/api/cohort/?degree=" + deg.deg.shortcode)
+        fetch("http://127.0.0.1:8000/api/cohort/?degree=" + deg.shortcode)
                 .then((res) => res.json())
                 .then(data => {
                   setCohorts(data)
@@ -21,8 +21,8 @@ function Degree(deg){
 
     return(
         <div>
-            <p>{deg.deg.full_name}</p>
-            <p>{deg.deg.shortcode}</p>
+            <p>{deg.full_name}</p>
+            <p>{deg.shortcode}</p>
             <ul>
                 {listCohorts()}
             </ul>

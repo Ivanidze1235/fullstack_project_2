@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import { Routes, Route, Link } from "react-router";
 import Home from "./home";
 import Degree from "./degree";
-function Degrees(data){
+function Degrees({data}){
     
     const listDegreeLinks = () => {
         if(data != null){
             console.log(data)
-            let list = data.data.map(el => <li><Link to={`/degree/${el.shortcode}`}>Go to {el.shortcode}</Link></li>)
+            let list = data.map(el => <li><Link to={`/degree/${el.shortcode}`}>Go to {el.shortcode}</Link></li>)
             return list;
         }
         

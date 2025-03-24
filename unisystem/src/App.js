@@ -8,6 +8,7 @@ import Degree from './components/degree';
 import Home from './components/home';
 import Cohorts from './components/cohorts';
 import Cohort from './components/cohort';
+import Student from './components/student';
 function App() {
   const [degreeData, setDegreeData] = useState(null)
   useEffect(()=> {
@@ -28,6 +29,17 @@ function App() {
               .catch((err) => console.error(err))
       }, [])
 
+    const [studentData, setStudentData] = useState(null)
+    useEffect(()=> {
+        fetch("http://localhost:8000/api/student")
+                .then((res) => res.json())
+                .then(data => {
+                  setStudentData(data)
+                })
+                .catch((err) => console.error(err))
+        }, [])
+  
+
   const listDegreeRoutes = () => {
     if(degreeData != null){
         let list = degreeData.map(el => <Route exact path={`/degree/${el.shortcode}`} element={<Degree deg={el}/>}></Route>)
@@ -37,7 +49,14 @@ function App() {
 
   const listCohortRoutes = () => {
     if(cohortData != null){
-        let list = cohortData.map(el => <Route exact path={`/cohort/${el.id}`} element={<Cohort deg={el}/>}></Route>)
+        let list = cohortData.map(el => <Route exact path={`/cohort/${el.id}`} element={<Cohort cohort={el}/>}></Route>)
+        return list;
+      }
+  }
+
+  const listStudentRoutes = () => {
+    if(studentData != null){
+        let list = studentData.map(el => <Route exact path={`/student/${el.student_id}`} element={<Student student={el}/>}></Route>)
         return list;
       }
   }
@@ -52,6 +71,7 @@ function App() {
           <Route exact path={"/cohort"} element={<Cohorts data={cohortData}/>}></Route>
           {listDegreeRoutes()}
           {listCohortRoutes()}
+          {listStudentRoutes()}
         </Routes>
       </div>
     );
