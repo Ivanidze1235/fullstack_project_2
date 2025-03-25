@@ -3,8 +3,9 @@ function Home(){
     return(
         <div>
             <ul>
-                <li><Link to={"/degree"}>Go to degrees</Link></li>
-                <li><Link to={"/cohort"}>Go to cohorts</Link></li>
+                <li><Link to={"/degrees"}>Go to degrees</Link></li>
+                <li><Link to={"/cohorts"}>Go to cohorts</Link></li>
+                <li><Link to={"/modules"}>Go to modules</Link></li>
             </ul>
         </div>
     )

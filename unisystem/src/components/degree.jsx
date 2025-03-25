@@ -1,35 +1,52 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-function Degree({deg}){
+function Degree(){
     const [cohorts, setCohorts] = useState(null)
+    const [degree, setDegree] = useState(null)
+
+
+    let location = useLocation();
+    location = new URLSearchParams(location.search);
+    let deg = location.get("degree")
     useEffect(()=> {
-        fetch("http://127.0.0.1:8000/api/cohort/?degree=" + deg.shortcode)
+      fetch("http://127.0.0.1:8000/api/degree/" + deg)
+              .then((res) => res.json())
+              .then(data => {
+                setDegree(data)
+              })
+              .catch((err) => console.error(err))
+      }, [deg])
+
+    useEffect(()=> {
+        fetch("http://127.0.0.1:8000/api/cohort/?degree=" + deg)
                 .then((res) => res.json())
                 .then(data => {
                   setCohorts(data)
-                  console.log(data)
                 })
                 .catch((err) => console.error(err))
-        }, [])
+        }, [deg])
 
         const listCohorts = () => {
             if(cohorts != null){
-              let list = cohorts.map(el => <li>Cohort ID: {el.id}, {el.name}<Link to={`/cohort/${el.id}`}>View Cohort</Link></li>)
+              let list = cohorts.map(el => <li>Cohort ID: {el.id}, {el.name} <Link to={`/cohort/?code=${el.id}`}>View Cohort</Link></li>)
               return list;
             }
           }
-
-    return(
+          console.log(degree)
+    if (degree != null && cohorts != null) {
+      return(
         <div>
-            <p>{deg.full_name}</p>
-            <p>{deg.shortcode}</p>
+            <p>{degree.full_name}</p>
+            <p>Code: {degree.shortcode}</p>
             <ul>
                 {listCohorts()}
             </ul>
-            <Link to={"/degree"}>Go to degrees</Link>
+            <Link to={"/degrees"}>Go to degrees</Link>
         </div>
         
-    );
+    );  
+    }
+    
 }
 
 export default Degree;

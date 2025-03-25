@@ -1,21 +1,20 @@
 import { Link } from "react-router";
 
-function Cohorts({data}){
+function Modules({data}){
     
-    const listCohortLinks = () => {
+    const listModuleLinks = () => {
         if(data != null){
-            console.log("this is data")
             console.log(data)
-            let list = data.map(el => <li>{el.id} <Link to={`/cohort/?code=${el.id}`}>Go to {el.id}</Link></li>)
+            let list = data.map(el => <li><Link to={`/module/?module=${el.code}`}>Go to {el.code}</Link></li>)
             return list;
         }
         
     }
     return(
         <div>
-            <p>List of Cohorts</p>
+            <p>List of modules</p>
             <ul>
-                {listCohortLinks()}
+                {listModuleLinks()}
                 <Link to={"/"}>Go home</Link>
             </ul>
             
@@ -24,4 +23,4 @@ function Cohorts({data}){
     )        
 }
 
-export default Cohorts
+export default Modules
