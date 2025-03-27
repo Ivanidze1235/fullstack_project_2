@@ -10,6 +10,9 @@ import Cohort from './components/cohort';
 import Student from './components/student';
 import Modules from './components/modules';
 import Module from './components/module';
+import ModuleStudents from './components/moduleStudents';
+import NewDegree from './components/newdegree';
+
 function App() {
   const [degreeData, setDegreeData] = useState(null)
   useEffect(()=> {
@@ -54,6 +57,8 @@ function App() {
           <Route path={"/cohort"} element={<Cohort/>}></Route>
           <Route path={"/student"} element={<Student/>}></Route>
           <Route path={"/module"} element={<Module/>}></Route>
+          <Route path={"/module/students"} element={<ModuleStudents/>}></Route>
+          <Route exact path={"/newdegree"} element={<NewDegree/>}></Route>
         </Routes>
       </div>
     );

@@ -18,7 +18,7 @@ function Cohort(){
                   console.log(data)
                 })
                 .catch((err) => console.error(err))
-        }, [code, cohort])
+        }, [code])
     
     useEffect(()=> {
         console.log("cohort")
@@ -30,13 +30,13 @@ function Cohort(){
                   console.log(data)
                 })
                 .catch((err) => console.error(err))
-        }, [code, cohort])
+        }, [code])
 
         const listStudents = () => {
             if(students != null){
                 console.log("students")
                 console.log(students)
-              let list = students.map(el => <li>Student: {el.student_id}, {el.first_name} <Link to={`/student/?id=${el.student_id}`}>View Student</Link></li>)
+              let list = students.map(el => <li key={el.student_id}>Student: {el.student_id}, {el.first_name} <Link to={`/student/?id=${el.student_id}`}>View Student</Link></li>)
               return list;
             }
           }

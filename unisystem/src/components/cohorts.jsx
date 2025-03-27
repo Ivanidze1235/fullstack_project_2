@@ -6,7 +6,7 @@ function Cohorts({data}){
         if(data != null){
             console.log("this is data")
             console.log(data)
-            let list = data.map(el => <li>{el.id} <Link to={`/cohort/?code=${el.id}`}>Go to {el.id}</Link></li>)
+            let list = data.map(el => <li key={el.id}>{el.id} <Link to={`/cohort/?code=${el.id}`}>Go to {el.id}</Link></li>)
             return list;
         }
         

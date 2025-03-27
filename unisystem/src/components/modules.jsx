@@ -5,7 +5,7 @@ function Modules({data}){
     const listModuleLinks = () => {
         if(data != null){
             console.log(data)
-            let list = data.map(el => <li><Link to={`/module/?module=${el.code}`}>Go to {el.code}</Link></li>)
+            let list = data.map(el => <li key={el.code}><Link to={`/module/?module=${el.code}`}>Go to {el.code}</Link></li>)
             return list;
         }
         

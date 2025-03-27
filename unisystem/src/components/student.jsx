@@ -15,7 +15,7 @@ function Student(){
                 })
                 .catch((err) => console.error(err))
                 console.log(student)
-        }, [stud, student])
+        }, [stud])
     if (student != null) {
         return(
             <div>

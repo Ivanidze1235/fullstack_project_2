@@ -18,11 +18,14 @@ function Module(){
 
     if (module != null) {
         console.log(module)
-      return(
+        return(
         <div>
             <p>{module.code}</p>
             <p>{module.full_name}</p>
-            <Link to={"/modules"}>Go to modules</Link>
+            <ul>
+              <li><Link to={"/modules"}>Go to modules</Link></li>
+              <li><Link to={"/module/students/?module=" + module.code}>Go to students in module</Link></li>
+            </ul>
         </div>
         
     );  
