@@ -12,6 +12,7 @@ import Module from './components/module';
 import ModuleStudents from './components/moduleStudents';
 import CohortModules from './components/cohortModules';
 import NewDegree from './components/newdegree';
+import NewCohort from './components/newcohort';
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
           <Route path={"/module/students"} element={<ModuleStudents/>}></Route>
           <Route path={"/cohort/modules"} element={<CohortModules/>}></Route>
           <Route exact path={"/newdegree"} element={<NewDegree/>}></Route>
+          <Route exact path={"/newcohort"} element={<NewCohort/>}></Route>
         </Routes>
       </div>
     );

@@ -29,7 +29,8 @@ function Cohorts(){
             <p>List of Cohorts</p>
             <ul>
                 {listCohortLinks()}
-                <Link to={"/"}>Go home</Link>
+                <p><Link to={"/newcohort"}>Make new cohort</Link></p>
+                <p><Link to={"/"}>Go home</Link></p>
             </ul>
             
         </div>

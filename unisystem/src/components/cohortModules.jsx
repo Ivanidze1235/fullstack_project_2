@@ -15,7 +15,7 @@ function CohortModules() {
             .then(data => {
               setModules(data)
             })
-            .catch((err) => console.error(err))  
+            .catch((err) => console.error(err))
         }
           
           }, [])
