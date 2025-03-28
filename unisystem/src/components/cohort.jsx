@@ -4,8 +4,8 @@ function Cohort(){
     const [students, setStudents] = useState(null)
     const [cohort, setCohort] = useState(null)
 
-    let location = useLocation();
-    location = new URLSearchParams(location.search);
+    let location = useLocation()
+    location = new URLSearchParams(location.search)
     let code = location.get("code")
     
     useEffect(()=> {
@@ -18,11 +18,9 @@ function Cohort(){
                   console.log(data)
                 })
                 .catch((err) => console.error(err))
-        }, [code])
+        }, [])
     
     useEffect(()=> {
-        console.log("cohort")
-        console.log(cohort)
         fetch("http://127.0.0.1:8000//api/student/?cohort=" + code)
                 .then((res) => res.json())
                 .then(data => {
@@ -30,7 +28,7 @@ function Cohort(){
                   console.log(data)
                 })
                 .catch((err) => console.error(err))
-        }, [code])
+        }, [])
 
         const listStudents = () => {
             if(students != null){
@@ -49,7 +47,9 @@ function Cohort(){
                 <ul>
                     {listStudents()}
                 </ul>
-                <Link to={"/cohorts"}>Go to cohorts</Link>
+                <p><Link to={"/cohort/modules/?cohort="+cohort.id}>Go to modules delivered to cohort</Link></p>
+                <p><Link to={"/cohorts"}>Go to cohorts</Link></p>
+                
             </div>
             
         );    
