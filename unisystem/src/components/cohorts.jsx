@@ -1,12 +1,25 @@
 import { Link } from "react-router";
+import { useState } from 'react';
+import { useEffect } from 'react';
 
-function Cohorts({data}){
+function Cohorts(){
+
+    const [cohortData, setCohortData] = useState(null)
+        useEffect(()=> {
+          fetch("http://localhost:8000/api/cohort")
+                  .then((res) => res.json())
+                  .then(data => {
+                    setCohortData(data)
+                    console.log(cohortData)
+                  })
+                  .catch((err) => console.error(err))
+          }, [])
     
     const listCohortLinks = () => {
-        if(data != null){
+        if(cohortData != null){
             console.log("this is data")
-            console.log(data)
-            let list = data.map(el => <li key={el.id}>{el.id} <Link to={`/cohort/?code=${el.id}`}>Go to {el.id}</Link></li>)
+            console.log(cohortData)
+            let list = cohortData.map(el => <li key={el.id}>{el.id} <Link to={`/cohort/?code=${el.id}`}>Go to {el.id}</Link></li>)
             return list;
         }
         

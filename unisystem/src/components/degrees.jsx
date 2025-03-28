@@ -1,11 +1,23 @@
 import { Link } from "react-router";
+import { useState } from 'react';
+import { useEffect } from 'react';
 
-function Degrees({data}){
+function Degrees(){
     
+    const [degreeData, setDegreeData] = useState(null)
+      useEffect(()=> {
+        fetch("http://localhost:8000/api/degree")
+                .then((res) => res.json())
+                .then(data => {
+                  setDegreeData(data)
+                })
+                .catch((err) => console.error(err))
+        }, [])
+
     const listDegreeLinks = () => {
-        if(data != null){
-            console.log(data)
-            let list = data.map(el => <li key={el.shortcode}><Link to={`/degree/?degree=${el.shortcode}`}>Go to {el.shortcode}</Link></li>)
+        if(degreeData != null){
+            console.log(degreeData)
+            let list = degreeData.map(el => <li key={el.shortcode}><Link to={`/degree/?degree=${el.shortcode}`}>Go to {el.shortcode}</Link></li>)
             return list;
         }
         
