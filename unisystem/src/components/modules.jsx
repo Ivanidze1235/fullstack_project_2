@@ -27,7 +27,9 @@ function Modules(){
             <p>List of modules</p>
             <ul>
                 {listModuleLinks()}
-                <Link to={"/"}>Go home</Link>
+                <p><Link to={"/newmodule"}>Create new module</Link></p>
+                <p><Link to={"/"}>Go home</Link></p>
+                
             </ul>
             
         </div>
