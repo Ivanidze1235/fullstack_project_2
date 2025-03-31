@@ -11,7 +11,7 @@ function NewModule(){
 
     const navigate = useNavigate()
 
-    const postDegree = (e) => {
+    const postModule = (e) => {
         e.preventDefault()
         fetch("http://localhost:8000/api/module/", {
     
@@ -55,7 +55,7 @@ function NewModule(){
     }
 
     return(
-        <form onSubmit={postDegree}>
+        <form onSubmit={postModule}>
             <label htmlFor="cohorts">Select cohorts: </label>
             <Select name="cohorts" options={listCohorts()} isMulti onChange={(cohorts) => setDelivered(cohorts.map(el => el.value))}></Select>
             {console.log(delivered)}

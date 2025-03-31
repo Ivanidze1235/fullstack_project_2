@@ -44,7 +44,8 @@ function Student(){
                 <p>ID: {student.student_id}</p>
                 <p>Name: {student.first_name} {student.last_name}</p>
                 {listModules()}
-                <Link to={"/cohorts"}>Go to cohorts</Link>
+                <p><Link to={"/newstudent"}>Create new student</Link></p>
+                <p><Link to={"/cohorts"}>Go to cohorts</Link></p>
             </div>  
         );    
     }

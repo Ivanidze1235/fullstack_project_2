@@ -9,7 +9,7 @@ function NewCohort(){
 
     const navigate = useNavigate()
 
-    const postDegree = (e) => {
+    const postCohort = (e) => {
         e.preventDefault()
         console.log(degree)
         fetch("http://localhost:8000/api/cohort/", {
@@ -57,7 +57,7 @@ function NewCohort(){
     }
 
     return(
-        <form onSubmit={postDegree}>
+        <form onSubmit={postCohort}>
             <label>Select degree: </label>
             <select name="degrees" onChange={(degree) => setDegree(degree.target.value)}>
                 {listDegrees()}
