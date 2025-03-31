@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router"
+import Select from 'react-select'
 
 function NewModule(){
     const [code, setCode] = useState("")
@@ -43,12 +44,11 @@ function NewModule(){
               })
               .catch((err) => console.error(err))
         }, [])
-    
+
 
     const listCohorts = () => {
-        console.log(cohorts)
         if(cohorts.length > 0){
-            let list = cohorts.map(el => <label><input type="checkbox" value={`http://localhost:8000/api/cohort/${el.id}/`}></input> {el.name} </label>)
+            let list = cohorts.map(el => ({value: `http://localhost:8000/api/cohort/${el.id}/`, label: el.name}))
 
             return list
         }
@@ -57,12 +57,8 @@ function NewModule(){
     return(
         <form onSubmit={postDegree}>
             <label htmlFor="cohorts">Select cohorts: </label>
-            <select name="cohorts" onChange={(cohorts) => console.log(cohorts.target.value) /*setDelivered(cohorts.target.value)*/}>
-                {/* {listCohorts()} */}
-            </select>
-            <div class="select" onChange={(cohorts) => console.log(cohorts)}>
-                {listCohorts()}
-            </div>
+            <Select name="cohorts" options={listCohorts()} isMulti onChange={(cohorts) => setDelivered(cohorts.map(el => el.value))}></Select>
+            {console.log(delivered)}
             <label htmlFor="code">enter module code: </label>
             <input name="code" type="text"
                     value={code}
