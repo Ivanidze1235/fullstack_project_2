@@ -25,8 +25,8 @@ function Modules(){
     return(
         <div className="flex bg-gray-100">
             <div className="flex-col w-64 bg-gray-800">
-                <p className="flex items-center justify-center h-16 bg-gray-900"><Link className="text-blue-500" to={"/newmodule"}>Create new module</Link></p>
-                <p className="flex items-center justify-center h-16 bg-gray-900"><Link className="text-blue-500" to={"/"}>Go home</Link></p>
+                <Link className="text-blue-500" to={"/newmodule"}><button className="flex items-center justify-center h-16 bg-gray-900 w-full">Create new module</button></Link>
+                <Link className="text-blue-500" to={"/"}><button className="flex items-center justify-center h-16 bg-gray-900 w-full">Go home</button></Link>
             </div>
             
             <ul className="divide-y divide-gray-300 mt-5 ml-auto mr-5 px-4 border w-70 ">

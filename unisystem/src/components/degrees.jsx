@@ -25,8 +25,10 @@ function Degrees(){
     return(
         <div className="flex bg-gray-100 h-screen">
             <div className="flex-col w-64 bg-gray-800">
-                <p className="flex items-center justify-center h-16 bg-gray-900"><Link className="text-blue-500" to={"/newdegree"}>Create new degree</Link></p>
-                <p className="flex items-center justify-center h-16 bg-gray-900"><Link className="text-blue-500" to={"/"}>Go home</Link></p>
+
+                <Link className="text-blue-500" to={"/newdegree"}><button className="flex items-center justify-center h-16 bg-gray-900 w-full">Create new degree</button></Link>
+                <Link className="text-blue-500" to={"/"}><button className="flex items-center justify-center h-16 bg-gray-900 w-full">Go home</button></Link>
+            
             </div>
             <ul className="divide-y divide-gray-300 mt-5 ml-auto mr-5 px-4 border min-w-96">
                 <p className="py-4 text-slate-700 font-bold uppercase text-left">List of degrees</p>
