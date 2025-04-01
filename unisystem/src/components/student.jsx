@@ -41,7 +41,7 @@ function Student(){
 
     const listModules = () => {
         if(modules != null)
-        {let list = modules.map(el => <li key={el.code}><Link to={`/module/?module=${el.code}`}>{el.code}</Link> {el.full_name}</li>)
+        {let list = modules.map(el => <li key={el.code}><Link className="text-blue-500" to={`/module/?module=${el.code}`}>{el.code}</Link> {el.full_name}</li>)
         return list}
     }
 
@@ -68,9 +68,9 @@ function Student(){
                 <ul>
                     {listGrades()}
                 </ul>
-                <p><Link to={"/setgrade/?id="+student.student_id}>Set student grade</Link></p>
-                <p><Link to={"/newstudent"}>Create new student</Link></p>
-                <p><Link to={"/cohorts"}>Go to cohorts</Link></p>
+                <p><Link className="text-blue-500" to={"/setgrade/?id="+student.student_id}>Set student grade</Link></p>
+                <p><Link className="text-blue-500" to={"/newstudent"}>Create new student</Link></p>
+                <p><Link className="text-blue-500" to={"/cohorts"}>Go to cohorts</Link></p>
             </div>  
         );    
     }

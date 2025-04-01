@@ -47,8 +47,8 @@ function Cohort(){
                 <ul>
                     {listStudents()}
                 </ul>
-                <p><Link to={"/cohort/modules/?cohort="+cohort.id}>Go to modules delivered to cohort</Link></p>
-                <p><Link to={"/cohorts"}>Go to cohorts</Link></p>
+                <p><Link className="text-blue-500" to={"/cohort/modules/?cohort="+cohort.id}>Go to modules delivered to cohort</Link></p>
+                <p><Link className="text-blue-500" to={"/cohorts"}>Go to cohorts</Link></p>
                 
             </div>
             

@@ -28,7 +28,7 @@ function Degree(){
 
         const listCohorts = () => {
             if(cohorts != null){
-              let list = cohorts.map(el => <li key={el.id}>Cohort ID: {el.id}, {el.name} <Link to={`/cohort/?code=${el.id}`}>View Cohort</Link></li>)
+              let list = cohorts.map(el => <li key={el.id}>Cohort ID: {el.id}, {el.name} <Link className="text-blue-500" to={`/cohort/?code=${el.id}`}>View Cohort</Link></li>)
               return list;
             }
           }
@@ -41,7 +41,7 @@ function Degree(){
             <ul>
                 {listCohorts()}
             </ul>
-            <Link to={"/degrees"}>Go to degrees</Link>
+            <Link className="text-blue-500" to={"/degrees"}>Go to degrees</Link>
         </div>
         
     );  

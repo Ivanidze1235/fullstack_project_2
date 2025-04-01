@@ -19,7 +19,7 @@ function Cohorts(){
         if(cohortData != null){
             console.log("this is data")
             console.log(cohortData)
-            let list = cohortData.map(el => <li key={el.id}>{el.id} <Link to={`/cohort/?code=${el.id}`}>Go to {el.id}</Link></li>)
+            let list = cohortData.map(el => <li key={el.id}>{el.id} <Link className="text-blue-500" to={`/cohort/?code=${el.id}`}>Go to {el.id}</Link></li>)
             return list;
         }
         
@@ -29,8 +29,8 @@ function Cohorts(){
             <p>List of Cohorts</p>
             <ul>
                 {listCohortLinks()}
-                <p><Link to={"/newcohort"}>Make new cohort</Link></p>
-                <p><Link to={"/"}>Go home</Link></p>
+                <p><Link className="text-blue-500" to={"/newcohort"}>Make new cohort</Link></p>
+                <p><Link className="text-blue-500" to={"/"}>Go home</Link></p>
             </ul>
             
         </div>

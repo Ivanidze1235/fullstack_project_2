@@ -35,7 +35,7 @@ function ModuleStudents() {
     }
     const displayStudents = () => {
         if(students.length !== 0){
-            let list = students.map(el => <li>{el.first_name} {el.last_name} ID: <Link to={`/student/?id=${el.student_id}`}>{el.student_id}</Link></li>)
+            let list = students.map(el => <li>{el.first_name} {el.last_name} ID: <Link className="text-blue-500" to={`/student/?id=${el.student_id}`}>{el.student_id}</Link></li>)
             return list
         }
     }
@@ -58,7 +58,7 @@ function ModuleStudents() {
             <ul>
                 {displayStudents()}
             </ul>
-            <Link to={"/module/?module=" + mod}>Go to module {mod}</Link>
+            <Link className="text-blue-500" to={"/module/?module=" + mod}>Go to module {mod}</Link>
         </div>
     )
 }

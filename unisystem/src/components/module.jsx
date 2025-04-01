@@ -23,8 +23,8 @@ function Module(){
             <p>{module.code}</p>
             <p>{module.full_name}</p>
             <ul>
-              <li><Link to={"/modules"}>Go to modules</Link></li>
-              <li><Link to={"/module/students/?module=" + module.code}>Go to students in module</Link></li>
+              <li><Link className="text-blue-500" to={"/modules"}>Go to modules</Link></li>
+              <li><Link className="text-blue-500" to={"/module/students/?module=" + module.code}>Go to students in module</Link></li>
             </ul>
         </div>
         

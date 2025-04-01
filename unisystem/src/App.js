@@ -21,7 +21,7 @@ import SetGrade from './components/setgrade';
 function App() {
 
     return (
-      <div className="App">
+      <div className="App text-xl font-medium text-black">
         <Routes>
           <Route exact path={"/"} element={<Home/>}></Route>
           <Route exact path={"/degrees"} element={<Degrees/>}></Route>
