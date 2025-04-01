@@ -17,20 +17,22 @@ function Degrees(){
     const listDegreeLinks = () => {
         if(degreeData != null){
             console.log(degreeData)
-            let list = degreeData.map(el => <li key={el.shortcode}><Link className="text-blue-500" to={`/degree/?degree=${el.shortcode}`}>Go to {el.shortcode}</Link></li>)
+            let list = degreeData.map(el => <li className="py-4 text-slate-800 font-bold uppercase text-right" key={el.shortcode}><Link className="text-blue-500" to={`/degree/?degree=${el.shortcode}`}>Go to {el.shortcode}</Link></li>)
             return list;
         }
         
     }
     return(
-        <div>
-            <p>List of degrees</p>
-            <ul>
+        <div className="flex bg-gray-100 h-screen">
+            <div className="flex-col w-64 bg-gray-800">
+                <p className="flex items-center justify-center h-16 bg-gray-900"><Link className="text-blue-500" to={"/newdegree"}>Create new degree</Link></p>
+                <p className="flex items-center justify-center h-16 bg-gray-900"><Link className="text-blue-500" to={"/"}>Go home</Link></p>
+            </div>
+            <ul className="divide-y divide-gray-300 mt-5 ml-auto mr-5 px-4 border min-w-96">
+                <p className="py-4 text-slate-700 font-bold uppercase text-left">List of degrees</p>
                 {listDegreeLinks()}
-                <p><Link className="text-blue-500" to={"/newdegree"}>Create new degree</Link></p>
-                <p><Link className="text-blue-500" to={"/"}>Go home</Link></p>
             </ul>
-            
+           
         </div>
         
     )        

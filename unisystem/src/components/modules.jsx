@@ -17,20 +17,20 @@ function Modules(){
     const listModuleLinks = () => {
         if(moduleData != null){
             console.log(moduleData)
-            let list = moduleData.map(el => <li className="py-4" key={el.code}> {el.full_name} <Link className="text-blue-500" to={`/module/?module=${el.code}`}>Go to {el.code}</Link></li>)
+            let list = moduleData.map(el => <li className="py-4 text-slate-800 font-bold uppercase text-right" key={el.code}> {el.full_name} <Link className="text-blue-500" to={`/module/?module=${el.code}`}>Go to {el.code}</Link></li>)
             return list;
         }
         
     }
     return(
         <div className="flex bg-gray-100">
-            <div className="hidden md:flex flex-col w-64 bg-gray-800">
+            <div className="flex-col w-64 bg-gray-800">
                 <p className="flex items-center justify-center h-16 bg-gray-900"><Link className="text-blue-500" to={"/newmodule"}>Create new module</Link></p>
                 <p className="flex items-center justify-center h-16 bg-gray-900"><Link className="text-blue-500" to={"/"}>Go home</Link></p>
             </div>
             
-            <ul className="divide-y divide-gray-300 mt-16 mx-auto px-4 border w-45">
-                <p>List of modules</p>
+            <ul className="divide-y divide-gray-300 mt-5 ml-auto mr-5 px-4 border w-70 ">
+                <p className="py-4 text-slate-700 font-bold uppercase text-left">List of modules</p>
                 {listModuleLinks()}
             </ul>
         </div>
