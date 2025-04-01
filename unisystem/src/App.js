@@ -15,6 +15,8 @@ import NewDegree from './components/newdegree';
 import NewCohort from './components/newcohort';
 import NewModule from './components/newmodule';
 import NewStudent from './components/newstudent';
+import SetGrade from './components/setgrade';
+
 
 function App() {
 
@@ -35,6 +37,7 @@ function App() {
           <Route exact path={"/newcohort"} element={<NewCohort/>}></Route>
           <Route exact path={"/newmodule"} element={<NewModule/>}></Route>
           <Route exact path={"/newstudent"} element={<NewStudent/>}></Route>
+          <Route path={"/setgrade"} element={<SetGrade/>}></Route>
         </Routes>
       </div>
     );
