@@ -19,17 +19,16 @@ function Cohorts(){
         if(cohortData != null){
             console.log("this is data")
             console.log(cohortData)
-            let list = cohortData.map(el => <li className="py-4 text-slate-800 font-bold uppercase text-right" key={el.id}>{el.id} <Link className="text-blue-500" to={`/cohort/?code=${el.id}`}>Go to {el.id}</Link></li>)
+            let list = cohortData.map(el => <li className="py-4 text-slate-800 font-bold uppercase text-right" key={el.id}>{el.name} <Link className="text-blue-500" to={`/cohort/?code=${el.id}`}>Go to {el.id}</Link></li>)
             return list;
         }
         
     }
     return(
-        <div className="flex bg-gray-100">
+        <div className="flex bg-gray-100 min-h-screen">
             <div className="flex-col w-64 bg-gray-800">
                 <Link className="text-blue-500" to={"/newcohort"}><button className="flex items-center justify-center h-16 bg-gray-900 w-full">Add new cohort</button></Link>
                 <Link className="text-blue-500" to={"/"}><button className="flex items-center justify-center h-16 bg-gray-900 w-full">Go home</button></Link>
-            
             </div>
             
             <ul className="divide-y divide-gray-300 mt-5 ml-auto mr-5 px-4 border min-w-96">

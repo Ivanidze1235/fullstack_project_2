@@ -41,14 +41,14 @@ function Student(){
 
     const listModules = () => {
         if(modules != null)
-        {let list = modules.map(el => <li key={el.code}><Link className="text-blue-500" to={`/module/?module=${el.code}`}>{el.code}</Link> {el.full_name}</li>)
+        {let list = modules.map(el => <li className="py-4 text-slate-800 font-bold uppercase text-right" key={el.code}><Link className="text-blue-500" to={`/module/?module=${el.code}`}>{el.code}</Link> {el.full_name}</li>)
         return list}
     }
 
     const listGrades = () => {
         if (grades != null) {
             let list = grades.map(el => 
-            <li key={el.id}>
+            <li className="py-4 text-slate-800 font-bold uppercase text-right" key={el.id}>
                 <p>{el.module.split("/")[el.module.split("/").length - 2]}</p> 
                 <p>CA: {el.ca_mark}</p>
                 <p>Exam: {el.exam_mark}</p>
@@ -59,18 +59,24 @@ function Student(){
 
     if (student != null) {
         return(
-            <div>
-                <p>ID: {student.student_id}</p>
-                <p>Name: {student.first_name} {student.last_name}</p>
-                <ul>
+            <div className="flex bg-gray-100 min-h-screen min-w-[30%]">
+                <div className="flex-col w-64 bg-gray-800">
+                    <p className="flex items-center justify-center h-16 bg-gray-900 text-blue-50 w-full">ID: {student.student_id}</p>
+                    <p className="flex items-center justify-center h-16 bg-gray-900 text-blue-50 w-full">Name: {student.first_name} {student.last_name}</p>
+                    <Link className="text-blue-500" to={"/setgrade/?id="+student.student_id}><button className="flex items-center justify-center h-16 bg-gray-900 w-full">Set student grade</button></Link>
+                    <Link className="text-blue-500" to={"/newstudent"}><button className="flex items-center justify-center h-16 bg-gray-900 w-full">Create new student</button></Link>
+                    <Link className="text-blue-500" to={"/cohorts"}><button className="flex items-center justify-center h-16 bg-gray-900 w-full">Go to cohorts</button></Link>
+                </div>
+                
+                <ul className="divide-y divide-gray-300 mt-5 ml-auto mr-5 px-4 border min-w-[50%]">
+                    <li className="py-4 text-slate-800 font-bold uppercase text-right">Modules:</li>
                     {listModules()}
                 </ul>
-                <ul>
+                <ul className="divide-y divide-gray-300 mt-5 ml-auto mr-5 px-4 border min-w-[20%]">
+                    <li className="py-4 text-slate-800 font-bold uppercase text-right">Grades:</li>
                     {listGrades()}
                 </ul>
-                <p><Link className="text-blue-500" to={"/setgrade/?id="+student.student_id}>Set student grade</Link></p>
-                <p><Link className="text-blue-500" to={"/newstudent"}>Create new student</Link></p>
-                <p><Link className="text-blue-500" to={"/cohorts"}>Go to cohorts</Link></p>
+                
             </div>  
         );    
     }

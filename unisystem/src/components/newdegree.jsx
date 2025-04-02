@@ -35,22 +35,27 @@ function NewDegree(){
     }
 
     return(
-        <form onSubmit={postDegree}>
-            <label>enter full degree name: </label>
-            <input  type="text"
-                    value={full_name}
-                    onChange={(name) => setName(name.target.value)}
-            />
-            <label>enter shortcode: </label>
-            <input  type="text"
-                    value={shortcode}
-                    onChange={(name) => setShortcode(name.target.value)}
-            />
-            
-            <button type="submit">
-                Submit
-            </button>
-        </form>
+        <div className="flex items-center justify-center p-12">
+            <div className="mx-auto w-full max-w-[550px] bg-white">
+                <form onSubmit={postDegree}>
+                    <label className="mb-3 block text-base font-medium text-[#07074D]">Enter full degree name: </label>
+                    <input className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" type="text"
+                        value={full_name}
+                        onChange={(name) => setName(name.target.value)}
+                    />
+                    <label className="mb-3 block text-base font-medium text-[#07074D]">Enter shortcode: </label>
+                    <input className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" type="text"
+                        value={shortcode}
+                        onChange={(name) => setShortcode(name.target.value)}
+                    />
+
+                    <button className="hover:shadow-form w-full mt-5 rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none" type="submit">
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>
+        
     )
 }
 

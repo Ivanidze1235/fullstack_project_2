@@ -19,13 +19,11 @@ function Module(){
     if (module != null) {
         console.log(module)
         return(
-        <div>
-            <p>{module.code}</p>
-            <p>{module.full_name}</p>
-            <ul>
-              <li><Link className="text-blue-500" to={"/modules"}>Go to modules</Link></li>
-              <li><Link className="text-blue-500" to={"/module/students/?module=" + module.code}>Go to students in module</Link></li>
-            </ul>
+        <div className="grid grid-cols-1 place-items-stretch bg-gray-100 min-h-screen">
+            <p className="flex items-center justify-center bg-gray-900 text-blue-50">{module.code}</p>
+            <p className="flex items-center justify-center bg-gray-900 text-blue-50">{module.full_name}</p>
+            <Link className="flex text-blue-500 bg-gray-700 hover:bg-gray-800 items-center justify-center" to={"/modules"}><button className="w-full">Go to modules</button></Link>
+            <Link className="flex text-blue-500 bg-gray-700 hover:bg-gray-800 items-center justify-center" to={"/module/students/?module=" + module.code}><button className="w-full">Go to students in module</button></Link>
         </div>
         
     );  

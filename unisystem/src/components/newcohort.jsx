@@ -57,26 +57,33 @@ function NewCohort(){
     }
 
     return(
-        <form onSubmit={postCohort}>
-            <label>Select degree: </label>
-            <select name="degrees" onChange={(degree) => setDegree(degree.target.value)}>
-                {listDegrees()}
-            </select>
-            <label>enter ID: </label>
-            <input  type="text"
-                    value={id}
-                    onChange={(id) => setID(id.target.value)}
-            />
-            <label>enter year: </label>
-            <input  type="text"
-                    value={year}
-                    onChange={(year) => setYear(year.target.value)}
-            />
-            
-            <button type="submit">
-                Submit
-            </button>
-        </form>
+        <div className="flex items-center justify-center p-12">
+            <div className="mx-auto w-full max-w-[550px] bg-white">
+                <form onSubmit={postCohort}>
+                    <label className="mb-3 block text-base font-medium text-[#07074D]">Select degree: </label>
+                    <select className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" name="degrees" onChange={(degree) => setDegree(degree.target.value)}>
+                        {listDegrees()}
+                    </select>
+                    <label className="mb-3 block text-base font-medium text-[#07074D]">Enter ID: </label>
+                    <input className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" type="text"
+                        value={id}
+                        onChange={(id) => setID(id.target.value)}
+                    />
+                    <label className="mb-3 block text-base font-medium text-[#07074D]">Enter year: </label>
+                    <input className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" type="text"
+                        value={year}
+                        onChange={(year) => setYear(year.target.value)}
+                    />
+                    <div>
+                        <button type="submit" className="hover:shadow-form w-full mt-5 rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none">
+                        Submit
+                    </button>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+        
     )
 }
 

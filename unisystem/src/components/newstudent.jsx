@@ -58,31 +58,36 @@ function NewStudent(){
     }
 
     return(
-        <form onSubmit={postStudent}>
-            <label htmlFor="cohorts">Select cohort: </label>
-            <select name="cohorts" onChange={(degree) => setCohort(degree.target.value)}>
-                {listCohorts()}
-            </select>
-            <label htmlFor="id">enter ID (8 digits): </label>
-            <input name="id" type="text"
-                    value={id}
-                    onChange={(id) => setID(id.target.value)}
-            />
-            <label htmlFor="first">enter first name: </label>
-            <input name="first" type="text"
-                    value={fname}
-                    onChange={(fname) => setFName(fname.target.value)}
-            />
-            <label htmlFor="last">enter last name: </label>
-            <input name="last" type="text"
-                    value={lname}
-                    onChange={(lname) => setLName(lname.target.value)}
-            />
+        <div className="flex items-center justify-center p-12">
+            <div className="mx-auto w-full max-w-[550px] bg-white">
+                <form onSubmit={postStudent}>
+                    <label className="mb-3 block text-base font-medium text-[#07074D]" htmlFor="cohorts">Select cohort: </label>
+                    <select className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" name="cohorts" onChange={(degree) => setCohort(degree.target.value)}>
+                        {listCohorts()}
+                    </select>
+                    <label className="mb-3 block text-base font-medium text-[#07074D]" htmlFor="id">Enter ID (8 digits): </label>
+                    <input className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" name="id" type="text"
+                        value={id}
+                        onChange={(id) => setID(id.target.value)}
+                    />
+                    <label className="mb-3 block text-base font-medium text-[#07074D]" htmlFor="first">Enter first name: </label>
+                    <input className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" name="first" type="text"
+                        value={fname}
+                        onChange={(fname) => setFName(fname.target.value)}
+                    />
+                    <label className="mb-3 block text-base font-medium text-[#07074D]" htmlFor="last">Enter last name: </label>
+                    <input className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" name="last" type="text"
+                        value={lname}
+                        onChange={(lname) => setLName(lname.target.value)}
+                    />
 
-            <button type="submit">
-                Submit
-            </button>
-        </form>
+                    <button className="hover:shadow-form w-full mt-5 rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none" type="submit">
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>
+        
     )
 }
 

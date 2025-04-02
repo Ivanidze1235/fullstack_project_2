@@ -23,7 +23,7 @@ function Degrees(){
         
     }
     return(
-        <div className="flex bg-gray-100 h-screen">
+        <div className="flex bg-gray-100 min-h-screen">
             <div className="flex-col w-64 bg-gray-800">
 
                 <Link className="text-blue-500" to={"/newdegree"}><button className="flex items-center justify-center h-16 bg-gray-900 w-full">Create new degree</button></Link>

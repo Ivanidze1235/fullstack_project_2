@@ -87,28 +87,33 @@ function SetGrade(){
     }
 
     return(
-        <form onSubmit={postCohort}>
-            <label htmlFor="modules">Select module: </label>
-            <select name="modules" onChange={(module) => setModule(module.target.value)}>
-                {listModules()}
-            </select>
-            <label htmlFor="ca">Enter ca mark: </label>
-            <input  type="text"
-                    name="ca"
-                    value={ca_mark}
-                    onChange={(ca) => setCA(ca.target.value)}
-            />
-            <label htmlFor="exam">Enter exam mark: </label>
-            <input  type="text"
-                    name="exam"
-                    value={exam_mark}
-                    onChange={(exam) => setExam(exam.target.value)}
-            />
-            
-            <button type="submit">
-                Submit
-            </button>
-        </form>
+        <div className="flex items-center justify-center p-12">
+            <div className="mx-auto w-full max-w-[550px] bg-white">
+                <form onSubmit={postCohort}>
+                    <label className="mb-3 block text-base font-medium text-[#07074D]" htmlFor="modules">Select module: </label>
+                    <select className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" name="modules" onChange={(module) => setModule(module.target.value)}>
+                        {listModules()}
+                    </select>
+                    <label className="mb-3 block text-base font-medium text-[#07074D]" htmlFor="ca">Enter ca mark: </label>
+                    <input className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" type="text"
+                        name="ca"
+                        value={ca_mark}
+                        onChange={(ca) => setCA(ca.target.value)}
+                    />
+                    <label className="mb-3 block text-base font-medium text-[#07074D]" htmlFor="exam">Enter exam mark: </label>
+                    <input className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" type="text"
+                        name="exam"
+                        value={exam_mark}
+                        onChange={(exam) => setExam(exam.target.value)}
+                    />
+
+                    <button className="hover:shadow-form w-full mt-5 rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none" type="submit">
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>
+        
     )
 }
 

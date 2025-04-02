@@ -23,7 +23,7 @@ function Modules(){
         
     }
     return(
-        <div className="flex bg-gray-100">
+        <div className="flex bg-gray-100 min-h-screen">
             <div className="flex-col w-64 bg-gray-800">
                 <Link className="text-blue-500" to={"/newmodule"}><button className="flex items-center justify-center h-16 bg-gray-900 w-full">Create new module</button></Link>
                 <Link className="text-blue-500" to={"/"}><button className="flex items-center justify-center h-16 bg-gray-900 w-full">Go home</button></Link>

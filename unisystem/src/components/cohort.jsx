@@ -34,23 +34,25 @@ function Cohort(){
             if(students != null){
                 console.log("students")
                 console.log(students)
-              let list = students.map(el => <li key={el.student_id}>Student: {el.student_id}, {el.first_name} <Link to={`/student/?id=${el.student_id}`}>View Student</Link></li>)
+              let list = students.map(el => <li className="py-4 text-slate-800 font-bold uppercase text-right" key={el.student_id}>Student: {el.student_id}, {el.first_name} <Link className="text-blue-500" to={`/student/?id=${el.student_id}`}>View Student</Link></li>)
               return list;
             }
           }
     if (students != null && cohort != null) {
         return(
-            <div>
-                <p>ID: {cohort.id}</p>
-                <p>Year: {cohort.year}</p>
-                <p>{cohort.name}</p>
-                <ul>
-                    {listStudents()}
-                </ul>
-                <p><Link className="text-blue-500" to={"/cohort/modules/?cohort="+cohort.id}>Go to modules delivered to cohort</Link></p>
-                <p><Link className="text-blue-500" to={"/cohorts"}>Go to cohorts</Link></p>
-                
+        <div className="flex bg-gray-100 min-h-screen">
+            <div className="flex-col w-64 bg-gray-800">
+              <p className="flex items-center justify-center h-16 bg-gray-900 text-blue-50 w-full">{cohort.name}</p>
+              <p className="flex items-center justify-center h-16 bg-gray-900 text-blue-50 w-full">Code: {cohort.id}</p>
+              <Link className="text-blue-500" to={"/cohort/modules/?cohort="+cohort.id}><button className="flex items-center justify-center h-16 bg-gray-900 w-full">Go to modules delivered to cohort</button></Link>
+              <Link className="text-blue-500" to={"/cohorts"}><button className="flex items-center justify-center h-16 bg-gray-900 w-full">Go to cohorts</button></Link>
             </div>
+              
+              <ul className="divide-y divide-gray-300 mt-5 ml-auto mr-5 px-4 border min-w-96">
+                {listStudents()}
+              </ul>
+              
+          </div>
             
         );    
     }

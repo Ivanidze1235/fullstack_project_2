@@ -35,7 +35,7 @@ function ModuleStudents() {
     }
     const displayStudents = () => {
         if(students.length !== 0){
-            let list = students.map(el => <li>{el.first_name} {el.last_name} ID: <Link className="text-blue-500" to={`/student/?id=${el.student_id}`}>{el.student_id}</Link></li>)
+            let list = students.map(el => <li className="py-4 text-slate-800 font-bold uppercase text-right">{el.first_name} {el.last_name} ID: <Link className="text-blue-500" to={`/student/?id=${el.student_id}`}>{el.student_id}</Link></li>)
             return list
         }
     }
@@ -53,12 +53,16 @@ function ModuleStudents() {
     getAllCohorts()
     console.log(students)
     return(
-        <div>
-            <p>Module: {mod}</p>
-            <ul>
+        <div className="flex bg-gray-100 min-h-screen">
+            <div className="flex-col w-64 bg-gray-800">
+                <p className="flex items-center justify-center h-16 bg-gray-900 text-blue-50 w-full">Module: {mod}</p>
+                <Link className="text-blue-500" to={"/module/?module=" + mod}><button className="flex items-center justify-center h-16 bg-gray-900 w-full">Go to module {mod}</button></Link>
+            </div>
+            
+            <ul className="divide-y divide-gray-300 mt-5 ml-auto mr-5 px-4 border min-w-96">
                 {displayStudents()}
             </ul>
-            <Link className="text-blue-500" to={"/module/?module=" + mod}>Go to module {mod}</Link>
+            
         </div>
     )
 }
