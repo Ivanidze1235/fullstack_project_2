@@ -27,9 +27,8 @@ function ModuleStudents() {
                     .then(data => {
                         setStudents(students => [...students, ...data])
                   })
-                  .catch((err) => console.error(err))    
+                  .catch((err) => console.error(err))
                 });
-                    
             }
         }
     }
@@ -62,7 +61,6 @@ function ModuleStudents() {
             <ul className="divide-y divide-gray-300 mt-5 ml-auto mr-5 px-4 border min-w-96">
                 {displayStudents()}
             </ul>
-            
         </div>
     )
 }

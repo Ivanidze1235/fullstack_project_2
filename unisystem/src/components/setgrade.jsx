@@ -15,9 +15,9 @@ function SetGrade(){
     location = new URLSearchParams(location.search);
     let stud = location.get("id")
 
-    const postCohort = (e) => {
+    const setGrade = (e) => {
         e.preventDefault()
-        if (module.length !== 0) {
+        if (modules.length !== 0) {
             console.log("module: ", module)
             console.log("ca mark: ", ca_mark)
             console.log("exam mark: ", exam_mark)
@@ -64,6 +64,7 @@ function SetGrade(){
                     .then((res) => res.json())
                     .then(module => {
                         setModules(module)
+                        setModule("http://localhost:8000/api/module/" + module[0].code + "/")
                     })
                     .catch((err) => console.error(err))
             })
@@ -89,7 +90,7 @@ function SetGrade(){
     return(
         <div className="flex items-center justify-center p-12">
             <div className="mx-auto w-full max-w-[550px] bg-white">
-                <form onSubmit={postCohort}>
+                <form onSubmit={setGrade}>
                     <label className="mb-3 block text-base font-medium text-[#07074D]" htmlFor="modules">Select module: </label>
                     <select className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" name="modules" onChange={(module) => setModule(module.target.value)}>
                         {listModules()}
